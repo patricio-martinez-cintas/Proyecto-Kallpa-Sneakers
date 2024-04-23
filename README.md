@@ -9,43 +9,54 @@
 
 Construcción desde cero de un modelo de base de datos de la empresa Kallpa Sneakers, yendo desde la construcción de las tablas necesarias y la inserción de los datos correspondientes, hasta la creación de vistas (views), funciones (functions), procedimientos almacenados (Stored Procedures) y disparadores (triggers).
 
+Archivo resumen del proyecto final:
+
++ [Pasos instalacón](/Proyecto%20final%20Kallpa%20Sneakers.pdf)
+
 
 ## PARTES DEL PROYECTO
+**Instrucciones para instalar la base de datos por partes:**
 
-**Creación de la Base de Datos y Tablas:** Se creo la estructura de tablas de la base de datos y también las relaciones entre ellas.
++ [Pasos instalacón](/Instalación.txt)
+
+**Diagrama entidad-relación final de la base de datos:**
 
 <p align="center">
   <img src="/Recursos/Diagrama Entidad-relacion.png" alt="KPI" width="1000">
 </p>
 
+**Creación de la Base de Datos y Tablas:** Se creo la estructura de tablas de la base de datos y también las relaciones entre ellas. El archivo es:
 
-**Inserción de los datos correspondientes a cada tabla:** Se realizaron la inserción de los datos correspondientes a cada tabla. Las inserciones fueron:
++ [Crear base de datos y tabla](/Carpeta%20Objetos/1%20-%20creación%20esquema%20y%20tablas.sql)
 
-+ [articulo_materia_prima](/insercion%20datos%20de%20tablas%20en%20sql/articulo_materia_prima.sql)
+**Inserción de los datos correspondientes a cada tabla:** Se realizaron la inserción de los datos correspondientes a cada tabla. Las inserciones son:
 
-+ [articulo](/insercion%20datos%20de%20tablas%20en%20sql/articulo.sql)
-
-+ [cliente](/insercion%20datos%20de%20tablas%20en%20sql/cliente.sql)
-
-+ [materia_prima](/insercion%20datos%20de%20tablas%20en%20sql/materia_prima.sql)
-
-+ [proveedor](/insercion%20datos%20de%20tablas%20en%20sql/proveedor.sql)
-
-+ [transporte](/insercion%20datos%20de%20tablas%20en%20sql/transporte.sql)
-
-+ [venta](/insercion%20datos%20de%20tablas%20en%20sql/venta.sql)
-
-**Creación de views, functions, store procedure y trigger:** Se crearon vistas, funciones y procedimientos almacenados para trabajar con los datos dentro de la base de datos, además de un disparador y creacion de una tabla auditoría que reacciona cada vez que se inserta, actualiza o elimina un dato en alguna tabla.
-
-+ [views](/Function,%20Store%20Procedure,%20Views%20y%20Trigger/Views.sql)
-
-+ [Store Procedure](/Function,%20Store%20Procedure,%20Views%20y%20Trigger/Store%20Procedure.sql)
-
-+ [Function](/Function,%20Store%20Procedure,%20Views%20y%20Trigger/function.sql)
-
-+ [Trigger y tabla auditoria](/Function,%20Store%20Procedure,%20Views%20y%20Trigger/Triggers%20y%20tabla%20auditoria%20general.sql)
++ [Inserción de datos](/Carpeta%20Objetos/2%20-%20inserción%20datos.sql)
 
 
-**Database final:** Archivo final para crear toda la base de datos completa:
+**Creación de views, functions, store procedure y trigger:** Se crearon vistas, funciones y procedimientos almacenados para trabajar con los datos dentro de la base de datos, además de un disparador. Los Archivos son: 
 
-+ [kallpa sneakers modelo final](/Base%20de%20dato%20final/kallpa_sneakers_database_modelo.sql)
++ [views](/Carpeta%20Objetos/3%20-%20Vistas.sql)
+
++ [Stored Procedures](/Carpeta%20Objetos/5%20-%20Procedimientos%20almacenados.sql)
+
++ [Functions](/Carpeta%20Objetos/4%20-%20Funciones.sql)
+
++ [Triggers](/Carpeta%20Objetos/6%20-%20Disparadores.sql)
+
+**Creación de usuarios (DCL):** Muestra de creación y eliminación de usuarios para la base de datos, dar y revocar privilegios. El archivo es:
+
++ [DCL](/Carpeta%20Objetos/7%20-%20DCL.sql)
+
+**Muestra de uso de TCL:** Archivo donde se muestra el uso de transacciónes sin el autoguardado por defecto. El archivo es:
+
++ [TCL](/Carpeta%20Objetos/8%20-%20TCL.sql)
+
+
+**Archivo de prueba:** Este archivo contiene pruebas del funcionamiento de los objetos de la base de datos como las views, functions, stored procedures y triggers. El archivo es:
+
++ [Prueba Objetos](/Carpeta%20Objetos/9%20-%20Pruebas%20de%20los%20objetos.sql)
+
+**Database final:** Archivo final de backup para crear toda la base de datos completa:
+
++ [kallpa sneakers modelo final](/Carpeta%20Objetos/10%20-%20kallpa%20sneakers%20-%20backup.sql)

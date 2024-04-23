@@ -1,0 +1,20 @@
+Para instalar la base de datos de 'kallpa sneakers' en su ordenador, debe ingresar a la carpeta: 'Carpeta Objetos' y ejecutar los archivos .sql en el siguiente orden:
+1) Abrir el archivo: 'creación esquema y tablas.sql' y ejecutarlo completo. Esta archivo creara la estructura de la base de datos con las tablas.
+
+2) Abrir el archivo: 'inserción datos.sql' y ejecutarlo completo. Este archivo realizara la inserción de todos los datos en las tablas.
+
+3) Abrir el archivo: 'Vistas.sql' y ejecutarlo completo. Este archivo crea las siete vistas de la base de datos listas para usar.
+
+4) Abrir el archivo: 'Funciones.sql' y ejecutarlo completo. Este archivo crea las dos funciones de la base de datos listas para usar.
+
+5) Abrir el archivo: 'Procedimientos almacenados.sql' y ejecutarlo completo. Este archivo crea los cuatro procedimientos almacenados de la base de datos que estan listos para usar.
+
+6) Abrir el archivo: 'Disparadores.sql' y ejecutarlo completo. Este archivo crea los seis disparadores sobre la tabla ventas y los seis sobre la tabla clientes.
+
+7) Abrir el archivo: 'DCL.sql' y ejecutarlo completo o por partes para ver su funcionamiento. Este archivo crea y elimina los usuarios de ejemplos dandoles privilegios y quitandoselos sobre la base de datos y alguna de sus tablas.
+
+8) Abrir el archivo: 'TCL.sql' y ejecutarlo completo o por partes para ver su funcionamiento. Este archivo muestra el funcionamiento del control de transacciones sin el autoguardado activado por defecto, realizando como ejemplo inserciones para su ejemplificación.
+
+9) Opcional.Este archivo muestra ejemplos del funcionamiento de las vistas, funciones, procedimientos almacenados y disparadores anteriormente creados. Abrir el archivo: 'Pruebas.sql' y ejecutarlo por partes para ver su funcionamiento.
+
+10) Opcional. Este archivo es el backup de la base de datos para instalar todos los coponentes con una sola ejecución. Abrir el archivo: 'kallpa sneakers - backup.sql' y ejecutarlo completo.
