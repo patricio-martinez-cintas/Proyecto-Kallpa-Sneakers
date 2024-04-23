@@ -9,12 +9,18 @@
 
 Construcción desde cero de un modelo de base de datos de la empresa Kallpa Sneakers, yendo desde la construcción de las tablas necesarias y la inserción de los datos correspondientes, hasta la creación de vistas (views), funciones (functions), procedimientos almacenados (Stored Procedures) y disparadores (triggers).
 
+## COMO PROYECTO FINAL DE CODERHOUSE -SQL-:
+
+**Comisión:** 53170
+**Profesor:** Camilo Andres Redondo
+**Estudiante:** Patricio Martinez Cintas
+
 ## PARTES DEL PROYECTO
 
 
 **Instrucciones para instalar la base de datos por partes:**
 
-+ [Proyecto resumen](/Instalación.txt)
++ [Pasos instalación](/Instalación.txt)
 
 **Diagrama entidad-relación final de la base de datos:**
 
