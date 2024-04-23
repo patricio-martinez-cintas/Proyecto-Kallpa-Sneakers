@@ -9,15 +9,12 @@
 
 Construcción desde cero de un modelo de base de datos de la empresa Kallpa Sneakers, yendo desde la construcción de las tablas necesarias y la inserción de los datos correspondientes, hasta la creación de vistas (views), funciones (functions), procedimientos almacenados (Stored Procedures) y disparadores (triggers).
 
-Archivo resumen del proyecto final:
-
-+ [Pasos instalacón](/Proyecto%20final%20Kallpa%20Sneakers.pdf)
-
-
 ## PARTES DEL PROYECTO
+
+
 **Instrucciones para instalar la base de datos por partes:**
 
-+ [Pasos instalacón](/Instalación.txt)
++ [Proyecto resumen](/Instalación.txt)
 
 **Diagrama entidad-relación final de la base de datos:**
 
