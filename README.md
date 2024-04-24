@@ -39,7 +39,7 @@ Construcción desde cero de un modelo de base de datos de la empresa Kallpa Snea
 + [Inserción de datos](/Carpeta%20Objetos/2%20-%20inserción%20datos.sql)
 
 
-**Creación de views, functions, store procedure y trigger:** Se crearon vistas, funciones y procedimientos almacenados para trabajar con los datos dentro de la base de datos, además de un disparador. Los Archivos son: 
+**Creación de views, functions, store procedure y trigger:** Se crearon vistas, funciones y procedimientos almacenados para trabajar con los datos dentro de la base de datos, además de disparadorores. Los Archivos son: 
 
 + [views](/Carpeta%20Objetos/3%20-%20Vistas.sql)
 
