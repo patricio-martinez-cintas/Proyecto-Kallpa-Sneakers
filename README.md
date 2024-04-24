@@ -12,7 +12,9 @@ Construcción desde cero de un modelo de base de datos de la empresa Kallpa Snea
 ## COMO PROYECTO FINAL DE CODERHOUSE -SQL-:
 
 **Comisión:** 53170
+
 **Profesor:** Camilo Andres Redondo
+
 **Estudiante:** Patricio Martinez Cintas
 
 ## PARTES DEL PROYECTO
