@@ -45,6 +45,114 @@ LOCK TABLES `articulo` WRITE;
 INSERT INTO `articulo` VALUES (1,'Huayra','Calzado urbano unisex base baja de P.V.C. de cuero ecologico blanca o negra',15500.00,'35 al 45','Unisex','2024-03-05'),(2,'Condor','Pancha hombre base baja de P.V.C. de cuero ecologico',14000.00,'39 al 45','Masculino','2024-03-05'),(3,'New Huyra','Calzado urbano unisex base baja de P.V.C. de cuero ecologico con lona beige, blanco y negro',15500.00,'35 al 45','Unisex','2024-03-05'),(4,'New Condor','Pancha hombre base baja de P.V.C. de cuero ecologico con lona',14000.00,'39 al 45','Masculino','2024-03-05'),(5,'New Nova','Calzado urbano hombre negro, blanco o gris de base media expanso de cuero ecologico con aplique de color marrón',17000.00,'39 al 44','Masculino','2024-03-05'),(6,'Nova','Calzado urbano hombre negro, blanco o gris de base media expanso de cuero ecologico',17000.00,'39 al 44','Masculino','2024-03-05'),(7,'Tinku','Calzado urbano hombre negro o blanco de base baja T.R. de cuero ecologico y apliques marrón',21000.00,'39 al 44','Masculino','2024-03-05'),(8,'Lisa','Calzado deportivo-urbano dama negro, blanco o gris de base media expanso de cuero ecologico y tela',18000.00,'35 al 40','Femenino','2024-03-05'),(9,'Kalla','Calzado  urbano de dama base alta  T.R. de cuero ecológico blanca, celeste, rosa o violeta',22500.00,'35 al 40','Femenino','2024-03-05'),(10,'New Pucara','Bota hombre base mediana de expanso de cuero ecológico negra o azul con apliques',18000.00,'39 al 44','Masculino','2024-03-05'),(11,'Pucara','Bota hombre base mediana de expanso de cuero ecológico negra o azul',18000.00,'39 al 44','Masculino','2024-03-05');
 /*!40000 ALTER TABLE `articulo` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_before_insert` BEFORE INSERT ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'INSERT', 'BEFORE', USER(), CONCAT('Registro insertado: ID_Articulo->', NEW.ID_Articulo, ', Articulo->', NEW.Articulo, ', Descripcion->', NEW.Descripcion, ', Precio->', NEW.Precio, ', Talles->', NEW.Talles, ', Genero->', NEW.Genero, ', Ultima_Modificacion->', NEW.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_after_insert` AFTER INSERT ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'INSERT', 'AFTER', USER(), CONCAT('Registro insertado: ID_Articulo->', NEW.ID_Articulo, ', Articulo->', NEW.Articulo, ', Descripcion->', NEW.Descripcion, ', Precio->', NEW.Precio, ', Talles->', NEW.Talles, ', Genero->', NEW.Genero, ', Ultima_Modificacion->', NEW.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_before_update` BEFORE UPDATE ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'UPDATE', 'BEFORE', USER(), CONCAT('Registro actualizado (viejo/nuevo): ID_Articulo->', OLD.ID_Articulo, '/', NEW.ID_Articulo, ', Articulo->', OLD.Articulo, '/', NEW.Articulo, ', Descripcion->', OLD.Descripcion, '/', NEW.Descripcion, ', Precio->', OLD.Precio, '/', NEW.Precio, ', Talles->', OLD.Talles, '/', NEW.Talles, ', Genero->', OLD.Genero, '/', NEW.Genero, ', Ultima_Modificacion->', OLD.Ultima_Modificacion, '/', NEW.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_after_update` AFTER UPDATE ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'UPDATE', 'AFTER', USER(), CONCAT('Registro actualizado (viejo/nuevo): ID_Articulo->', OLD.ID_Articulo, '/', NEW.ID_Articulo, ', Articulo->', OLD.Articulo, '/', NEW.Articulo, ', Descripcion->', OLD.Descripcion, '/', NEW.Descripcion, ', Precio->', OLD.Precio, '/', NEW.Precio, ', Talles->', OLD.Talles, '/', NEW.Talles, ', Genero->', OLD.Genero, '/', NEW.Genero, ', Ultima_Modificacion->', OLD.Ultima_Modificacion, '/', NEW.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_before_delete` BEFORE DELETE ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'DELETE', 'BEFORE', USER(), CONCAT('Registro eliminado: ID_Articulo->', OLD.ID_Articulo, ', Articulo->', OLD.Articulo, ', Descripcion->', OLD.Descripcion, ', Precio->', OLD.Precio, ', Talles->', OLD.Talles, ', Genero->', OLD.Genero, ', Ultima_Modificacion->', OLD.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_articulo_after_delete` AFTER DELETE ON `articulo` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('articulo', 'DELETE', 'AFTER', USER(), CONCAT('Registro eliminado: ID_Articulo->', OLD.ID_Articulo, ', Articulo->', OLD.Articulo, ', Descripcion->', OLD.Descripcion, ', Precio->', OLD.Precio, ', Talles->', OLD.Talles, ', Genero->', OLD.Genero, ', Ultima_Modificacion->', OLD.Ultima_Modificacion));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `articulo_materia_prima`
@@ -128,7 +236,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Arco Iris (Milba)','Buenos Aires 1951','Monte Maiz','Córdoba','S/D','3468525603',0.00,'2024-03-04'),(2,'Gustavo Garcia','Congresales de Tucumán 262','Ballesteros','Córdoba','S/D','S/D',0.00,'2024-03-04'),(3,'Amatista Calzados (Sandra)','25 de Mayo & Presidente Roca','Justiniano Posse','Córdoba','S/D','3537583805',0.00,'2024-03-04'),(4,'Calzados Noe','Juan Domingo Perón 101','Tio Pujio','Córdoba','S/D','S/D',0.00,'2024-03-04'),(5,'Calzados AIDE (Maria Mercedes)','Córdoba 108','Inriville','Córdoba','S/D','346439561',0.00,'2024-03-04'),(6,'Calzados Chiru (Milena-Graciela Zamponi)','Sarmiento 845','Las Rosas','Santa Fe','S/D','3471676394',0.00,'2024-03-04'),(7,'Beatriz','S/D','Laguna Larga','Córdoba','S/D','S/D',0.00,'2024-03-04'),(8,'El Golazo (Maria Florencia)','Lavalle 992','Cañada de Gomez','Santa Fe','S/D','3471427339 / 3471524387',0.00,'2024-03-04'),(9,'Graciela','Virginia Manfredi Yaniz 214','Manfredi','Córdoba','S/D','17259350',0.00,'2024-03-04'),(10,'Pert Pieri (Liliana Mengolini)','Pedro Ferrero y San Luis','Amstrong','Santa Fe','S/D','3471156611002',0.00,'2024-03-04'),(11,'Calzados Mia','Blvd. América 984','El Trebol','Santa Fe','S/D','3401415151 / 3401503997',0.00,'2024-03-04'),(12,'Mariana Dietchi (Diego)','W. L. Rey 527','Tortugas','Santa Fe','S/D','3471618545',0.00,'2024-03-04'),(13,'Calzados Hugo','Snata Fe 85','Arteaga','Santa Fe','S/D','467450299',0.00,'2024-03-04'),(14,'Calzados IC (Ines)','J. V. González 822','Leones','Córdoba','S/D','3472155509710',0.00,'2024-03-04'),(15,'Cuesta arriba (Liliana y Ana)','Av. 17 1222','Las Parejas','Santa Fe','S/D','3471509994 / 3471577988',0.00,'2024-03-04'),(16,'Mattiacci','25 de Mayo 238','Marco Juarez','Córdoba','S/D','3472550628',0.00,'2024-03-04'),(17,'La Raza SA (Sabrina)','9 de Julio 1090','Camilo Aldao','Córdoba','S/D','3468546176',0.00,'2024-03-04'),(18,'Claudio Aragno','Hipólito Irigoyen 1301','San Jorge','Santa Fe','S/D','3406461399 / 3406441345',0.00,'2024-03-04'),(19,'Lidia','S/D','Monte Leña','Córdoba','S/D','S/D',0.00,'2024-03-04'),(20,'Gallotti Calzados','Av. Rivadavia 255','Laborde','Córdoba','S/D','3537583177',0.00,'2024-03-04'),(21,'Alhaurin (Atencio)','España 468','Rawson','San Juan','S/D','S/D',0.00,'2024-03-04'),(22,'Tienda los vascos (Silvina y Mariela)','uruguay y 25 de Mayo','Isla Verde','Córdoba','S/D','3468648071 / 3468596243',0.00,'2024-03-04'),(23,'Ciabattoni(Sofia)','Pío Angulo 581','Bell Ville','Córdoba','S/D','3537558755',0.00,'2024-03-04'),(24,'Zapateria Melody (Claudia)','San Martin 1687','Carcaraña','Santa Fe','S/D','341156181280 / 3414940138',0.00,'2024-03-04'),(25,'Pilcheria Cachorro (Ricardo)','Sta. Fe 69','Bouquet','Santa Fe','S/D','3471566107',0.00,'2024-03-04'),(26,'Zapateria Amatti','9 de Julio 970','Camilo Aldao','Córdoba','S/D','3468641390',0.00,'2024-03-04'),(27,'Yeska Calzados','Leandro Alem 1435','Sastre y Ortiz','Santa Fe','S/D','3404525012 / 3406404513',0.00,'2024-03-04'),(28,'Lupeco Calzados','Buenos Aires 2502','Casilda','Santa Fe','S/D','341550522',0.00,'2024-03-04'),(29,'Zapateria Yuli (Silvina-Agustin Sandonadi)','Av. Vélez Sarsfield 1065','La Carlota','Córdoba','S/D','3584407187 / 3584403961',0.00,'2024-03-04'),(30,'Nestor Lopez','Maipú 765','Monte Buey','Córdoba','S/D','3467415717',0.00,'2024-03-04'),(31,'Moine Humberto','Av. San Martín 180','Devoto','Córdoba','S/D','3564411311',0.00,'2024-03-04'),(32,'El Cordobé','Bv. 25 de Mayo 124','Morteros','Córdoba','S/D','S/D',0.00,'2024-03-04'),(33,'Anastacia (Julieta)','Hipolito Yrigoyen 148','Brinkmann','Córdoba','S/D','356215443568',0.00,'2024-03-04'),(34,'Esteban','S/D','Monte Cristo','Córdoba','S/D','S/D',0.00,'2024-03-04'),(35,'Manolo (Julieta)','9 de Julio 963','Pilar','Córdoba','S/D','S/D',0.00,'2024-03-04'),(36,'Zapateria Miria (Hector)','José Foresto 575','Chañar Ladeado','Santa Fe','S/D','3468544026 / 3468521633',0.00,'2024-03-04'),(37,'Donato (Pablo)','1º de Mayo 593','San Genaro','Santa Fe','S/D','3471517822',0.00,'2024-03-04'),(38,'ISAIA Evelin (Miguel)','Gdor Maneul de la Sota 255','Los Surgentes','Córdoba','S/D','3467640147',0.00,'2024-03-04'),(39,'Colorin Colorado (Noelia Correa)','Blvd. Ascasubi 446','Bell Ville','Córdoba','S/D','3537584616',0.00,'2024-03-04'),(40,'Mussa Calzados (Alejandro)','C. 10 100','Ordóñez','Córdoba','S/D','3537483517 / 3537582511',0.00,'2024-03-04'),(41,'Run (Miguel)','Moreno 1031','San José de la Esquina','Santa Fe','S/D','3467418847 / 3467418773',0.00,'2024-03-04'),(42,'Tienda Benedetti (Rodolfo)','Rioja 1227','Cruz Alta','Córdoba','S/D','3467629456',0.00,'2024-03-04'),(43,'Mourro (Marcela)','Pueyrredón M 1347','Totoras','Santa Fe','S/D','347635404',0.00,'2024-03-04'),(44,'Tienda Sachi','S/D','Bustinza','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(45,'Tony calzados','Lisandro de la Torre 1241','Correa','Santa Fe','S/D','3471359909',0.00,'2024-03-04'),(46,'Calzados Koket (Fernanda)','Gral. Paz 328','Justiniano Posse','Córdoba','S/D','3537514027',0.00,'2024-03-04'),(47,'Ignacio Hetrea','S/D','Rosario','Santa Fe','S/D','3415022868',0.00,'2024-03-04'),(48,'Hugo Mansilla','Av. Vélez Sarsfield 824','La Carlota','Córdoba','S/D','3584435634',0.00,'2024-03-04'),(49,'Noris Farroni','S/D','Monte Cristo','Córdoba','S/D','S/D',0.00,'2024-03-04'),(50,'Beatriz Eleno','25 de Mayo 1014','Correa','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(51,'Calzados India (Yamila y Liliana)','Antártida Argentina 131','Roldán','Santa Fe','S/D','3416905147',0.00,'2024-03-04'),(52,'Calzados Puchi (Pablo Bertoni)','Eva Perón 1684','San Jorge','Santa Fe','S/D','3046443484',0.00,'2024-03-04'),(53,'Estevez Jaime','S/D','Pilar','Córdoba','S/D','S/D',0.00,'2024-03-04'),(54,'Jorge Turro','Barrio Villa Libertador','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(55,'Oscar','S/D','La Calera','Córdoba','S/D','S/D',0.00,'2024-03-04'),(56,'Antoni','Barrio Patricios','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(57,'Boschetti','S/D','Las Varillas','Córdoba','S/D','S/D',0.00,'2024-03-04'),(58,'Pablo Cabrera','S/D','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(59,'Rodolfo sport','Rogelio Martinez 170','Berrotarán','Córdoba','S/D','3584940006 / 3584940658',0.00,'2024-03-04'),(60,'Estilo Calzados (Celina)','S/D','San Agustin','Santa Fe','S/D','3547455600',0.00,'2024-03-04'),(61,'Calzado Alberto (Alberto Gonzales)','Mendoza 350','Chimbas','San Juan','S/D','S/D',0.00,'2024-03-04'),(62,'Casa Mirian(Juan)','Int. Moya 140','James Craik','Córdoba','S/D','3517079700',0.00,'2024-03-04'),(63,'Ver Mar(Veronica)','Rosario de Sta. Fe 438','Marco Juarez','Córdoba','S/D','346841106',0.00,'2024-03-04'),(64,'Club Pie Calzados (Alexis)','Av. Belgrano & Gral. Paz','Leones','Córdoba','S/D','3472523516',0.00,'2024-03-04'),(65,'Zapateria Luli (Stella)','Sta. Fe 131','Noetinger','Córdoba','S/D','3472501687',0.00,'2024-03-04'),(66,'Favia Delgiudice','S/D','General Baldissera','Córdoba','S/D','3468434272',0.00,'2024-03-04');
+INSERT INTO `cliente` VALUES (1,'Arco Iris (Milba)','Buenos Aires 1951','Monte Maiz','Córdoba','S/D','S/D',0.00,'2024-03-04'),(2,'Gustavo Garcia','Congresales de Tucumán 262','Ballesteros','Córdoba','S/D','S/D',0.00,'2024-03-04'),(3,'Amatista Calzados (Sandra)','25 de Mayo & Presidente Roca','Justiniano Posse','Córdoba','S/D','S/D',0.00,'2024-03-04'),(4,'Calzados Noe','Juan Domingo Perón 101','Tio Pujio','Córdoba','S/D','S/D',0.00,'2024-03-04'),(5,'Calzados AIDE (Maria Mercedes)','Córdoba 108','Inriville','Córdoba','S/D','S/D',0.00,'2024-03-04'),(6,'Calzados Chiru (Milena-Graciela Zamponi)','Sarmiento 845','Las Rosas','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(7,'Beatriz','S/D','Laguna Larga','Córdoba','S/D','S/D',0.00,'2024-03-04'),(8,'El Golazo (Maria Florencia)','Lavalle 992','Cañada de Gomez','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(9,'Graciela','Virginia Manfredi Yaniz 214','Manfredi','Córdoba','S/D','S/D',0.00,'2024-03-04'),(10,'Pert Pieri (Liliana Mengolini)','Pedro Ferrero y San Luis','Amstrong','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(11,'Calzados Mia','Blvd. América 984','El Trebol','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(12,'Mariana Dietchi (Diego)','W. L. Rey 527','Tortugas','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(13,'Calzados Hugo','Snata Fe 85','Arteaga','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(14,'Calzados IC (Ines)','J. V. González 822','Leones','Córdoba','S/D','S/D',0.00,'2024-03-04'),(15,'Cuesta arriba (Liliana y Ana)','Av. 17 1222','Las Parejas','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(16,'Mattiacci','25 de Mayo 238','Marco Juarez','Córdoba','S/D','S/D',0.00,'2024-03-04'),(17,'La Raza SA (Sabrina)','9 de Julio 1090','Camilo Aldao','Córdoba','S/D','S/D',0.00,'2024-03-04'),(18,'Claudio Aragno','Hipólito Irigoyen 1301','San Jorge','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(19,'Lidia','S/D','Monte Leña','Córdoba','S/D','S/D',0.00,'2024-03-04'),(20,'Gallotti Calzados','Av. Rivadavia 255','Laborde','Córdoba','S/D','S/D',0.00,'2024-03-04'),(21,'Alhaurin (Atencio)','España 468','Rawson','San Juan','S/D','S/D',0.00,'2024-03-04'),(22,'Tienda los vascos (Silvina y Mariela)','uruguay y 25 de Mayo','Isla Verde','Córdoba','S/D','S/D',0.00,'2024-03-04'),(23,'Ciabattoni(Sofia)','Pío Angulo 581','Bell Ville','Córdoba','S/D','S/D',0.00,'2024-03-04'),(24,'Zapateria Melody (Claudia)','San Martin 1687','Carcaraña','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(25,'Pilcheria Cachorro (Ricardo)','Sta. Fe 69','Bouquet','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(26,'Zapateria Amatti','9 de Julio 970','Camilo Aldao','Córdoba','S/D','S/D',0.00,'2024-03-04'),(27,'Yeska Calzados','Leandro Alem 1435','Sastre y Ortiz','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(28,'Lupeco Calzados','Buenos Aires 2502','Casilda','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(29,'Zapateria Yuli (Silvina-Agustin Sandonadi)','Av. Vélez Sarsfield 1065','La Carlota','Córdoba','S/D','S/D',0.00,'2024-03-04'),(30,'Nestor Lopez','Maipú 765','Monte Buey','Córdoba','S/D','S/D',0.00,'2024-03-04'),(31,'Moine Humberto','Av. San Martín 180','Devoto','Córdoba','S/D','S/D',0.00,'2024-03-04'),(32,'El Cordobé','Bv. 25 de Mayo 124','Morteros','Córdoba','S/D','S/D',0.00,'2024-03-04'),(33,'Anastacia (Julieta)','Hipolito Yrigoyen 148','Brinkmann','Córdoba','S/D','S/D',0.00,'2024-03-04'),(34,'Esteban','S/D','Monte Cristo','Córdoba','S/D','S/D',0.00,'2024-03-04'),(35,'Manolo (Julieta)','9 de Julio 963','Pilar','Córdoba','S/D','S/D',0.00,'2024-03-04'),(36,'Zapateria Miria (Hector)','José Foresto 575','Chañar Ladeado','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(37,'Donato (Pablo)','1º de Mayo 593','San Genaro','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(38,'ISAIA Evelin (Miguel)','Gdor Maneul de la Sota 255','Los Surgentes','Córdoba','S/D','S/D',0.00,'2024-03-04'),(39,'Colorin Colorado (Noelia Correa)','Blvd. Ascasubi 446','Bell Ville','Córdoba','S/D','S/D',0.00,'2024-03-04'),(40,'Mussa Calzados (Alejandro)','C. 10 100','Ordóñez','Córdoba','S/D','S/D',0.00,'2024-03-04'),(41,'Run (Miguel)','Moreno 1031','San José de la Esquina','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(42,'Tienda Benedetti (Rodolfo)','Rioja 1227','Cruz Alta','Córdoba','S/D','S/D',0.00,'2024-03-04'),(43,'Mourro (Marcela)','Pueyrredón M 1347','Totoras','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(44,'Tienda Sachi','S/D','Bustinza','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(45,'Tony calzados','Lisandro de la Torre 1241','Correa','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(46,'Calzados Koket (Fernanda)','Gral. Paz 328','Justiniano Posse','Córdoba','S/D','S/D',0.00,'2024-03-04'),(47,'Ignacio Hetrea','S/D','Rosario','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(48,'Hugo Mansilla','Av. Vélez Sarsfield 824','La Carlota','Córdoba','S/D','S/D',0.00,'2024-03-04'),(49,'Noris Farroni','S/D','Monte Cristo','Córdoba','S/D','S/D',0.00,'2024-03-04'),(50,'Beatriz Eleno','25 de Mayo 1014','Correa','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(51,'Calzados India (Yamila y Liliana)','Antártida Argentina 131','Roldán','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(52,'Calzados Puchi (Pablo Bertoni)','Eva Perón 1684','San Jorge','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(53,'Estevez Jaime','S/D','Pilar','Córdoba','S/D','S/D',0.00,'2024-03-04'),(54,'Jorge Turro','Barrio Villa Libertador','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(55,'Oscar','S/D','La Calera','Córdoba','S/D','S/D',0.00,'2024-03-04'),(56,'Antoni','Barrio Patricios','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(57,'Boschetti','S/D','Las Varillas','Córdoba','S/D','S/D',0.00,'2024-03-04'),(58,'Pablo Cabrera','S/D','Córdoba','Córdoba','S/D','S/D',0.00,'2024-03-04'),(59,'Rodolfo sport','Rogelio Martinez 170','Berrotarán','Córdoba','S/D','S/D',0.00,'2024-03-04'),(60,'Estilo Calzados (Celina)','S/D','San Agustin','Santa Fe','S/D','S/D',0.00,'2024-03-04'),(61,'Calzado Alberto (Alberto Gonzales)','Mendoza 350','Chimbas','San Juan','S/D','S/D',0.00,'2024-03-04'),(62,'Casa Mirian(Juan)','Int. Moya 140','James Craik','Córdoba','S/D','S/D',0.00,'2024-03-04'),(63,'Ver Mar(Veronica)','Rosario de Sta. Fe 438','Marco Juarez','Córdoba','S/D','S/D',0.00,'2024-03-04'),(64,'Club Pie Calzados (Alexis)','Av. Belgrano & Gral. Paz','Leones','Córdoba','S/D','S/D',0.00,'2024-03-04'),(65,'Zapateria Luli (Stella)','Sta. Fe 131','Noetinger','Córdoba','S/D','S/D',0.00,'2024-03-04'),(66,'Favia Delgiudice','S/D','General Baldissera','Córdoba','S/D','S/D',0.00,'2024-03-04');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +296,7 @@ CREATE TABLE `proveedor` (
 
 LOCK TABLES `proveedor` WRITE;
 /*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
-INSERT INTO `proveedor` VALUES (101,'Simonian Textil','Roma 1087','Córdoba','Córdoba','S/D','3514527190'),(102,'Betty Insumos','Antonio Machoni 1809','Córdoba','Córdoba','S/D','3516809266'),(103,'Mario Milano Insumos','Av Eduardo Bulnes 1362','Córdoba','Córdoba','mariomilano06@gmail.com','3515209974'),(104,'Ianoda','Roma 1500','Córdoba','Córdoba','info@casaianoda.com.ar','3514246340'),(105,'Julio Etiquetas','S/D','Córdoba','Córdoba','S/D','3512921428'),(106,'Totalpack Embalajes','Guido Spano 2532','Córdoba','Córdoba','S/D','3514553223'),(107,'Corplast','Álvarez Condarco 2357','Córdoba','Córdoba','S/D','3512306308'),(108,'Gonzales bases','S/D','Córdoba','Córdoba','S/D','3513737634');
+INSERT INTO `proveedor` VALUES (101,'Simonian Textil','Roma 1087','Córdoba','Córdoba','S/D','S/D'),(102,'Betty Insumos','Antonio Machoni 1809','Córdoba','Córdoba','S/D','S/D'),(103,'Mario Milano Insumos','Av Eduardo Bulnes 1362','Córdoba','Córdoba','mariomilano06@gmail.com','S/D'),(104,'Ianoda','Roma 1500','Córdoba','Córdoba','info@casaianoda.com.ar','S/D'),(105,'Julio Etiquetas','S/D','Córdoba','Córdoba','S/D','S/D'),(106,'Totalpack Embalajes','Guido Spano 2532','Córdoba','Córdoba','S/D','S/D'),(107,'Corplast','Álvarez Condarco 2357','Córdoba','Córdoba','S/D','S/D'),(108,'Gonzales bases','S/D','Córdoba','Córdoba','S/D','S/D');
 /*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,6 +364,114 @@ LOCK TABLES `venta` WRITE;
 INSERT INTO `venta` VALUES (1,9,10,19,'Surtidas',22000.00,'2022-03-03',12),(2,9,10,7,'Blanco',22000.00,'2022-03-03',12),(3,4,10,23,'Chocolate',19500.00,'2022-03-03',4),(4,4,7,22,'Azul',13650.00,'2022-03-04',10),(5,4,7,22,'Chocolate',13650.00,'2022-03-04',10),(6,9,7,22,'Negro',15400.00,'2022-03-04',10),(7,9,7,3,'Bco/lila',15400.00,'2022-03-04',10),(8,4,10,66,'Negra',19500.00,'2022-03-04',10),(9,9,7,66,'Bco/Rosa',15400.00,'2022-03-04',10),(10,9,10,2,'Bco/Rosa',22000.00,'2022-03-04',14),(11,9,8,1,'Bco/lila',17600.00,'2022-03-04',12),(12,9,8,1,'Bco/Cel',17600.00,'2022-03-04',12),(13,9,16,5,'Bco/Rosa',35200.00,'2022-03-03',7),(14,9,16,5,'Negra',35200.00,'2022-03-03',7),(15,4,30,21,'Blanco',58500.00,'2022-03-02',20),(16,4,50,21,'Suela',97500.00,'2022-03-02',20),(17,4,70,21,'Negro',136500.00,'2022-03-02',20),(18,7,18,30,'Negra',39600.00,'2022-03-09',11),(19,4,7,30,'Blanca',13650.00,'2022-03-09',11),(20,7,18,5,'Negra',39600.00,'2022-03-09',7),(21,7,10,7,'Blanca',22000.00,'2022-03-09',12),(22,7,10,7,'Negra',22000.00,'2022-03-09',12),(23,7,12,1,'Blanca',26400.00,'2022-03-09',12),(24,7,12,1,'Negra',26400.00,'2022-03-09',12),(25,7,7,14,'Blanca',15400.00,'2022-03-09',7),(26,7,7,14,'Negra',15400.00,'2022-03-09',7),(27,4,60,21,'Blanca',117000.00,'2022-03-17',20),(28,4,30,21,'Negra',58500.00,'2022-03-17',20),(29,4,44,21,'Suela',85800.00,'2022-03-17',20),(30,2,7,9,'Negra',13650.00,'2022-03-21',6),(31,4,7,10,'Negra ',13650.00,'2022-03-21',10),(32,4,7,10,'Blanca',13650.00,'2022-03-21',10),(33,7,7,10,'Negra',15400.00,'2022-03-21',10),(34,7,7,10,'Blanca',15400.00,'2022-03-21',10),(35,4,7,4,'Negro',13650.00,'2022-03-23',8),(36,4,7,27,'Blanco',13650.00,'2022-03-23',2),(37,7,7,27,'Negro',15400.00,'2022-03-23',2),(38,7,7,27,'Blanco',15400.00,'2022-03-23',2),(39,4,7,11,'Negro',13650.00,'2022-03-25',10),(40,4,7,11,'Suela',13650.00,'2022-03-25',10),(41,4,7,11,'Blanco',13650.00,'2022-03-25',10),(42,7,7,11,'Negro',15400.00,'2022-03-25',10),(43,7,10,25,'Negro',22000.00,'2022-03-25',12),(44,4,3,25,'Bco/Azul',5850.00,'2022-03-25',12),(45,4,3,25,'Negro',5850.00,'2022-03-25',12),(46,7,7,12,'Negra',15400.00,'2022-03-25',10),(47,7,5,12,'Blanco',11000.00,'2022-03-25',10),(48,7,10,6,'Blanco',22000.00,'2022-03-25',11),(49,7,10,6,'Negra',22000.00,'2022-03-25',11),(50,7,10,8,'Blanca',22000.00,'2022-03-25',2),(51,7,10,8,'Negra',22000.00,'2022-03-25',2),(52,7,10,13,'Blanca',22000.00,'2022-03-25',10),(53,7,7,28,'Blanca',15400.00,'2022-03-25',5),(54,7,7,28,'Negra',15400.00,'2022-03-25',5),(55,4,7,28,'Negra',13650.00,'2022-03-25',5),(56,7,7,18,'blanco',15400.00,'2022-03-25',12),(57,7,7,18,'negro',15400.00,'2022-03-25',12),(58,7,7,26,'Blanco',15400.00,'2022-03-25',12),(59,7,7,20,'Blanco',16450.00,'2022-03-25',10),(60,4,10,17,'negras',21500.00,'2022-03-25',10),(61,2,7,14,'negra',13650.00,'2022-03-29',7),(62,2,10,7,'Negra',19500.00,'2022-03-29',12),(63,2,10,2,'negra ',19500.00,'2022-03-29',14),(64,2,11,30,'Blanca',21450.00,'2022-03-29',11),(65,2,10,23,'Blanca',19500.00,'2022-03-29',4),(66,2,5,4,'Blanca',9750.00,'2022-03-29',8),(67,2,5,4,'Negra',9750.00,'2022-03-29',8),(68,2,7,24,'Negra ',13650.00,'2022-03-29',12),(69,2,7,24,'Blanca',13650.00,'2022-03-29',12),(70,2,7,15,'Negra ',13650.00,'2022-03-29',11),(71,2,7,15,'Blanca',13650.00,'2022-03-29',11),(72,2,14,8,'Suela ',27300.00,'2022-04-06',2),(73,2,14,8,'Negro',27300.00,'2022-04-06',2),(74,2,60,21,'Suela ',117000.00,'2022-04-06',20),(75,2,60,21,'Negro',117000.00,'2022-04-06',20),(76,2,30,21,'Blanco',58500.00,'2022-04-06',20),(77,11,10,30,'Negro',22000.00,'2022-04-13',11),(78,11,7,15,'Negro',15400.00,'2022-04-13',11),(79,11,7,15,'Suela',15400.00,'2022-04-13',11),(80,11,7,4,'Negro ',15400.00,'2022-04-13',8),(81,11,7,4,'Azul',15400.00,'2022-04-13',8),(82,11,10,16,'Negro',22000.00,'2022-04-13',7),(83,11,10,7,'negro',22000.00,'2022-04-13',12),(84,11,10,19,'Surtido',22000.00,'2022-04-13',12),(85,11,7,11,'Suela',15400.00,'2022-04-13',10),(86,11,10,2,'Azul',22000.00,'2022-04-13',14),(87,11,10,23,'Negro',22000.00,'2022-04-20',4),(88,11,10,23,'Azul',22000.00,'2022-04-20',4),(89,11,10,23,'Suela',22000.00,'2022-04-20',4),(90,4,3,23,'Negro',6210.00,'2022-04-20',4),(91,11,14,8,'Negro',30800.00,'2022-04-20',2),(92,11,14,8,'Suela',30800.00,'2022-04-20',2),(93,7,7,31,'Bco',15400.00,'2022-04-26',15),(94,9,8,31,'Bco/Rosa',17600.00,'2022-04-26',15),(95,4,12,32,'Bco/Rosa',23400.00,'2022-04-26',16),(96,4,12,32,'Bco/Lila',23400.00,'2022-04-26',16),(97,9,7,4,'Surtidos',15400.00,'2022-04-27',8),(98,9,7,4,'Negro',15400.00,'2022-04-27',8),(99,9,6,12,'Bco',13200.00,'2022-04-27',10),(100,9,2,12,'Bco/Cel',4400.00,'2022-04-27',10),(101,9,2,12,'Bco/Lila',4400.00,'2022-04-27',10),(102,9,28,15,'Surtidos',61600.00,'2022-04-27',11),(103,9,6,33,'Bco/lila',14400.00,'2022-04-27',12),(104,9,6,33,'Bco/Rosa',14400.00,'2022-04-27',12),(105,11,7,34,'Negro',16030.00,'2022-04-27',12),(106,4,12,34,'bco',24840.00,'2022-04-27',12),(107,4,12,34,'negro',24840.00,'2022-04-27',12),(108,4,12,34,'suela',24840.00,'2022-04-27',12),(109,4,10,35,'Bco',20700.00,'2022-04-27',12),(110,9,8,35,'Bco',19200.00,'2022-04-27',12),(111,9,8,35,'Bco/Cele',19200.00,'2022-04-27',12),(112,2,8,30,'Negra',16240.00,'2022-05-02',11),(113,9,36,61,'Negro',82800.00,'2022-05-02',19),(114,9,36,61,'Bco/Rosa',82800.00,'2022-05-02',19),(115,7,40,61,'Bco/Suela',92000.00,'2022-05-02',19),(116,11,40,61,'Negro',91600.00,'2022-05-05',19),(117,9,7,29,'Negro',17500.00,'2022-05-06',21),(118,2,7,29,'Negro',14210.00,'2022-05-06',21),(119,11,7,29,'Negro',16030.00,'2022-05-06',21),(120,4,7,29,'Negro',14490.00,'2022-05-06',21),(121,4,7,29,'Blanco',14490.00,'2022-05-06',21),(122,4,40,61,'Blanco',82800.00,'2022-05-12',19),(123,4,40,61,'Negro',82800.00,'2022-05-12',19),(124,4,40,61,'Suela',82800.00,'2022-05-12',19),(125,9,7,6,'Negro',16100.00,'2022-05-16',11),(126,9,10,25,'Bco/Celeste',23000.00,'2022-05-16',12),(127,4,7,28,'Blanco',14490.00,'2022-05-17',5),(128,4,7,28,'Suela',14490.00,'2022-05-17',5),(129,4,4,23,'Negro',8280.00,'2022-05-19',4),(130,9,7,18,'Bco',16100.00,'2022-05-20',12),(131,9,7,11,'Bco/Rosa',16100.00,'2022-05-20',10),(132,9,7,11,'Negro',16100.00,'2022-05-20',10),(133,9,7,13,'Bco',16100.00,'2022-05-20',10),(134,9,7,13,'Negro',16100.00,'2022-05-20',10),(135,4,10,13,'Suela',20700.00,'2022-05-20',10),(136,9,8,36,'Negro',19600.00,'2022-06-02',10),(137,4,11,37,'Negro',22770.00,'2022-06-02',2),(138,11,75,21,'Negro',171750.00,'2022-06-02',20),(139,11,10,38,'negro',23400.00,'2022-06-03',10),(140,4,10,38,'negro',20700.00,'2022-06-03',10),(141,4,10,39,'negro',20700.00,'2022-06-06',4),(142,11,7,40,'negro',16030.00,'2022-06-06',10),(143,9,7,40,'Negro',16800.00,'2022-06-06',10),(144,4,7,9,'negro',14490.00,'2022-06-06',6),(145,11,75,21,'Azul',171750.00,'2022-06-08',20),(146,11,7,20,'Azul',16030.00,'2022-06-14',10),(147,11,7,41,'azul',16030.00,'2022-06-14',10),(148,9,7,42,'negro',16800.00,'2022-06-16',10),(149,4,10,43,'negro ',20700.00,'2022-06-21',17),(150,4,10,43,'blanco',20700.00,'2022-06-21',17),(151,4,10,43,'suela',20700.00,'2022-06-21',17),(152,7,10,44,'negra',25000.00,'2022-06-21',12),(153,9,10,44,'negra',25000.00,'2022-06-21',12),(154,4,2,23,'blanco',4280.00,'2022-06-21',4),(155,4,18,9,'Surtidas',38520.00,'2022-06-22',6),(156,4,7,41,'bco/Rosa',14490.00,'2022-06-22',10),(157,7,7,41,'Negro',17500.00,'2022-06-22',10),(158,7,7,31,'negra',16100.00,'2022-06-22',15),(159,9,7,42,'Bco/Celeste',17500.00,'2022-06-22',10),(160,9,7,42,'Bco/rosa',17500.00,'2022-06-22',10),(161,9,7,3,'Bco/lila',17500.00,'2022-06-22',10),(162,7,7,45,'negro',17220.00,'2022-06-23',10),(163,7,7,45,'blanco',17220.00,'2022-06-23',10),(164,4,7,39,'suela',14980.00,'2022-06-28',4),(165,4,7,39,'blanco',14980.00,'2022-06-28',4),(166,4,8,16,'negro',17120.00,'2022-06-28',7),(167,7,7,46,'negro',17220.00,'2022-06-28',10),(168,7,7,46,'blanco',17220.00,'2022-06-28',10),(169,9,7,4,'surtidas',16800.00,'2022-06-28',8),(170,7,10,37,'blanca',24600.00,'2022-06-28',2),(171,7,7,29,'blanco',17500.00,'2022-06-28',21),(172,7,7,29,'negra',17500.00,'2022-06-28',21),(173,4,2,47,'negro',4500.00,'2022-07-01',1),(174,4,2,47,'tierra',4500.00,'2022-07-01',1),(175,4,2,47,'blanco',4500.00,'2022-07-01',1),(176,4,4,47,'negro',9000.00,'2022-07-01',1),(177,4,4,47,'blanco',9000.00,'2022-07-01',1),(178,4,5,47,'tierra',11250.00,'2022-07-01',1),(179,4,5,47,'suela',11250.00,'2022-07-01',1),(180,4,5,47,'choco',11250.00,'2022-07-01',1),(181,4,10,34,'blanco',22500.00,'2022-07-01',12),(182,4,10,34,'negro',22500.00,'2022-07-01',12),(183,11,5,34,'negro',12000.00,'2022-07-01',12),(184,4,4,34,'blanco',9000.00,'2022-07-01',12),(185,4,4,34,'negro',9000.00,'2022-07-01',12),(186,7,154,21,'varios ',454300.00,'2022-07-13',20),(187,3,17,38,'S/D',47430.00,'2022-08-26',10),(188,3,11,24,'S/D',30690.00,'2022-08-26',12),(189,3,24,8,'S/D',66960.00,'2022-08-26',2),(190,3,21,30,'S/D',58590.00,'2022-08-26',11),(191,3,20,27,'S/D',55800.00,'2022-08-26',2),(192,3,20,23,'S/D',55800.00,'2022-08-26',4),(193,3,24,28,'S/D',66960.00,'2022-09-01',5),(194,3,9,12,'S/D',25110.00,'2022-09-01',10),(195,3,16,10,'S/D',44640.00,'2022-09-01',10),(196,3,20,20,'S/D',55800.00,'2022-09-09',10),(197,3,12,8,'S/D',33480.00,'2022-09-09',2),(198,3,20,1,'S/D',55800.00,'2022-09-09',12),(199,3,11,30,'S/D',30690.00,'2022-09-09',11),(200,3,14,46,'S/D',39060.00,'2022-09-09',10),(201,3,12,28,'S/D',33480.00,'2022-09-09',5),(202,3,8,12,'S/D',22320.00,'2022-09-09',10),(203,3,3,23,'S/D',8370.00,'2022-09-14',4),(204,3,10,7,'S/D',27900.00,'2022-09-14',12),(205,3,20,6,'S/D',55800.00,'2022-09-14',11),(206,7,5,6,'S/D',13950.00,'2022-09-14',11),(207,8,12,34,'S/D',39600.00,'2022-09-15',12),(208,8,7,50,'S/D',23100.00,'2022-09-16',4),(209,8,20,51,'S/D',66000.00,'2022-09-16',13),(210,8,20,7,'S/D',66000.00,'2022-09-20',12),(211,8,10,19,'S/D',33000.00,'2022-09-19',12),(212,3,10,20,'S/D',28500.00,'2022-09-23',10),(213,1,10,20,'S/D',27500.00,'2022-09-23',10),(214,8,10,51,'gris',33000.00,'2022-09-23',13),(215,3,7,52,'ngro',19950.00,'2022-09-23',12),(216,3,7,52,'azul',19950.00,'2022-09-23',12),(217,3,10,15,'bco',28500.00,'2022-09-23',11),(218,3,10,15,'tierra',28500.00,'2022-09-23',11),(219,8,7,46,'negra',23100.00,'2022-09-23',10),(220,4,9,34,'Blanco ',25650.00,'2022-09-28',12),(221,4,7,53,'Blanco ',19950.00,'2022-09-28',12),(222,4,7,53,'negro',19950.00,'2022-09-28',12),(223,4,13,53,'negro',37050.00,'2022-09-28',12),(224,1,13,53,'casel',35750.00,'2022-09-28',12),(225,1,13,53,'negro',35750.00,'2022-09-28',12),(226,8,12,53,'negro',39600.00,'2022-09-28',12),(227,4,7,4,'negro',19950.00,'2022-10-03',8),(228,8,6,14,'negra',19800.00,'2022-10-03',7),(229,3,10,1,'negro',28500.00,'2022-10-03',12),(230,4,10,1,'negro',28500.00,'2022-10-03',12),(231,4,10,1,'Blanco ',28500.00,'2022-10-03',12),(232,4,10,16,'negro',28500.00,'2022-10-03',7),(233,3,10,16,'tierra',28500.00,'2022-10-03',7),(234,3,9,49,'negro',25650.00,'2022-10-05',12),(235,8,10,49,'negro',33000.00,'2022-10-05',12),(236,3,25,21,'azul ',71250.00,'2022-10-11',20),(237,3,75,21,'Blanco ',213750.00,'2022-10-11',20),(238,3,60,21,'negro',171000.00,'2022-10-11',20),(239,4,8,35,'Blanco ',22800.00,'2022-10-14',12),(240,4,6,35,'Blanco ',17100.00,'2022-10-14',12),(241,4,6,35,'negro',17100.00,'2022-10-14',12),(242,8,6,35,'negro ',19200.00,'2022-10-14',12),(243,4,44,61,'Blanco ',125400.00,'2022-04-19',19),(244,1,32,61,'negro',88000.00,'2022-04-19',19),(245,4,44,61,'negro',125400.00,'2022-10-24',19),(246,3,8,47,'tierra',23600.00,'2022-10-25',1),(247,4,6,47,'suela',17700.00,'2022-10-25',1),(248,3,10,47,'Blanco ',29500.00,'2022-10-25',1),(249,8,10,47,'bco/rosa',33000.00,'2022-10-25',1),(250,8,6,47,'negro/rosa',19800.00,'2022-10-25',1),(251,4,16,54,'negro',45600.00,'2022-10-27',12),(252,3,13,54,'bco',37050.00,'2022-10-27',12),(253,1,16,54,'negro',44000.00,'2022-10-27',12),(254,4,14,6,'negro',41300.00,'2022-10-31',11),(255,4,14,6,'bco',41300.00,'2022-10-31',11),(256,4,88,61,'bco',259600.00,'2022-11-11',19),(257,4,48,61,'Negro',133920.00,'2022-11-17',19),(258,4,10,23,'Blanco',29500.00,'2022-11-23',4),(259,4,6,23,'negra',17700.00,'2022-11-24',4),(260,7,4,23,'negra',11800.00,'2022-11-24',4),(261,6,48,61,'negra',158400.00,'2022-11-25',19),(262,3,10,39,'tierra',29500.00,'2022-11-30',4),(263,4,10,39,'blanco',29500.00,'2022-11-30',4),(264,3,9,2,'negro',26550.00,'2022-11-30',14),(265,4,6,53,'blanca',17700.00,'2022-12-01',12),(266,4,7,53,'negra',20650.00,'2022-12-01',12),(267,4,10,17,'negro',29500.00,'2022-12-06',10),(268,4,10,17,'bco',29500.00,'2022-12-06',10),(269,6,48,61,'bco',158400.00,'2022-12-07',19),(270,4,10,55,'bco ',29500.00,'2022-12-12',12),(271,4,10,16,'negro',29500.00,'2022-12-14',7),(272,4,10,2,'negro',29500.00,'2022-12-15',14),(273,4,20,34,'negro',59000.00,'2022-12-15',12),(274,6,10,56,'negro',32000.00,'2022-12-15',12),(275,4,70,21,'negro',269500.00,'2022-02-22',20),(276,4,50,21,'varios ',192500.00,'2023-03-07',20),(277,4,12,2,'bco',46200.00,'2023-03-10',14),(278,4,10,23,'bco',38500.00,'2023-03-10',4),(279,4,22,8,'ngo',84700.00,'2023-03-10',2),(280,4,14,46,'bco y ngo',53900.00,'2023-03-10',10),(281,4,10,38,'ngo',38500.00,'2023-03-10',10),(282,4,94,61,'Bco ',361900.00,'2023-03-13',19),(283,4,64,61,'Negro',246400.00,'2023-03-22',19),(284,4,14,23,'negro',55300.00,'2023-04-03',4),(285,6,10,7,'Negro ',35000.00,'2023-04-03',12),(286,8,10,2,'gris',38700.00,'2023-04-05',14),(287,6,20,2,'negro',80000.00,'2023-04-05',14),(288,6,8,16,'negro',32000.00,'2023-04-05',7),(289,11,8,16,'negro',34400.00,'2023-04-05',7),(290,6,12,1,'negro ',48000.00,'2023-04-05',12),(291,8,10,49,'bco/Rosa',35000.00,'2023-04-17',12),(292,5,10,34,'negra',44900.00,'2023-04-17',12),(293,5,10,34,'negra',44900.00,'2023-04-17',12),(294,8,32,61,'bco rosa',140160.00,'2023-04-21',19),(295,5,20,53,'negro',107600.00,'2023-04-26',12),(296,11,10,53,'negro',55500.00,'2023-04-26',12),(297,8,11,53,'blanco',57860.00,'2023-04-26',12),(298,8,11,53,'negro',57860.00,'2023-04-26',12),(299,11,16,5,'negro',75520.00,'2023-05-02',7),(300,5,6,42,'negro',27540.00,'2023-05-02',10),(301,5,6,42,'bco',27540.00,'2023-05-02',10),(302,5,6,42,'azul',27540.00,'2023-05-02',10),(303,5,20,53,'blanco',91800.00,'2023-05-02',12),(304,5,10,53,'azul',45900.00,'2023-05-02',12),(305,8,11,2,'bco/rosa',49280.00,'2023-05-02',14),(306,4,8,38,'blanco',34320.00,'2023-05-15',10),(307,4,65,21,'suela',337408.50,'2023-05-16',20),(308,4,14,30,'negro',60060.00,'2023-05-16',11),(309,4,14,30,'blanco',60060.00,'2023-05-16',11),(310,4,12,23,'Suela',51480.00,'2023-05-16',4),(311,4,6,15,'blanco ',25740.00,'2023-05-18',11),(312,4,6,15,'negro',25740.00,'2023-05-18',11),(313,4,5,10,'negro ',21450.00,'2023-05-18',10),(314,4,3,10,'blanco',12870.00,'2023-05-18',10),(315,5,11,2,'blanco',50490.00,'2023-05-18',14),(316,4,10,57,'blanco',42900.00,'2023-05-18',12),(317,7,12,1,'blanco',72000.00,'2023-05-30',12),(318,7,12,1,'negro',72000.00,'2023-05-30',12),(319,7,5,46,'negro',30000.00,'2023-05-30',10),(320,11,6,46,'negro ',33120.00,'2023-06-09',10),(321,4,20,59,'negro ',103000.00,'2023-06-21',12),(322,4,20,59,'blanco',103000.00,'2023-06-21',12),(323,2,10,23,'negra',51000.00,'2023-08-04',4),(324,4,6,23,'negra',32400.00,'2023-08-04',4),(325,4,4,23,'blanca',21600.00,'2023-08-04',4),(326,4,10,7,'negra',54000.00,'2023-08-07',12),(327,4,23,53,'blanca ',124200.00,'2023-08-08',12),(328,4,15,53,'negra',81000.00,'2023-08-08',12),(329,4,10,23,'Suela ',61500.00,'2023-09-05',4),(330,4,4,23,'suela ',26000.00,'2023-09-05',4),(331,4,2,23,'bco',13000.00,'2023-09-05',4),(332,4,23,53,'suela ',149500.00,'2023-09-05',12),(333,6,15,53,'negro ',102750.00,'2023-09-05',12),(334,4,10,46,'negro ',77500.00,'2023-10-27',10),(335,4,10,16,'blanco',77500.00,'2023-10-27',7),(336,4,10,38,'suela ',77500.00,'2023-10-27',10),(337,4,20,38,'negro ',155000.00,'2023-10-27',10),(338,4,10,7,'negra',77500.00,'2023-10-30',12),(339,4,10,23,'negro ',77500.00,'2023-11-06',4),(340,4,10,23,'Blanco',95000.00,'2023-12-12',4);
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_before_insert` BEFORE INSERT ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'INSERT', 'BEFORE', USER(), CONCAT('Registro insertado: ID_Venta->', NEW.ID_Venta, ', ID_Articulo->', NEW.ID_Articulo, ', Cantidad->', NEW.Cantidad, ', ID_Cliente->', NEW.ID_Cliente, ', Color->', NEW.Color, ', Total->', NEW.Total, ', Fecha->', NEW.Fecha, ', ID_Transporte->', NEW.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_after_insert` AFTER INSERT ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'INSERT', 'AFTER', USER(), CONCAT('Registro insertado: ID_Venta->', NEW.ID_Venta, ', ID_Articulo->', NEW.ID_Articulo, ', Cantidad->', NEW.Cantidad, ', ID_Cliente->', NEW.ID_Cliente, ', Color->', NEW.Color, ', Total->', NEW.Total, ', Fecha->', NEW.Fecha, ', ID_Transporte->', NEW.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_before_update` BEFORE UPDATE ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'UPDATE', 'BEFORE', USER(), CONCAT('Registro actualizado (viejo/nuevo): ID_Venta->', OLD.ID_Venta, '/', NEW.ID_Venta, ', ID_Articulo->', OLD.ID_Articulo, '/', NEW.ID_Articulo, ', Cantidad->', OLD.Cantidad, '/', NEW.Cantidad, ', ID_Cliente->', OLD.ID_Cliente, '/', NEW.ID_Cliente, ', Color->', OLD.Color, '/', NEW.Color, ', Total->', OLD.Total, '/', NEW.Total, ', Fecha->', OLD.Fecha, '/', NEW.Fecha, ', ID_Transporte->', OLD.ID_Transporte, '/', NEW.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_after_update` AFTER UPDATE ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'UPDATE', 'AFTER', USER(), CONCAT('Registro actualizado (viejo/nuevo): ID_Venta->', OLD.ID_Venta, '/', NEW.ID_Venta, ', ID_Articulo->', OLD.ID_Articulo, '/', NEW.ID_Articulo, ', Cantidad->', OLD.Cantidad, '/', NEW.Cantidad, ', ID_Cliente->', OLD.ID_Cliente, '/', NEW.ID_Cliente, ', Color->', OLD.Color, '/', NEW.Color, ', Total->', OLD.Total, '/', NEW.Total, ', Fecha->', OLD.Fecha, '/', NEW.Fecha, ', ID_Transporte->', OLD.ID_Transporte, '/', NEW.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_before_delete` BEFORE DELETE ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'DELETE', 'BEFORE', USER(), CONCAT('Registro eliminado: ID_Venta->', OLD.ID_Venta, ', ID_Articulo->', OLD.ID_Articulo, ', Cantidad->', OLD.Cantidad, ', ID_Cliente->', OLD.ID_Cliente, ', Color->', OLD.Color, ', Total->', OLD.Total, ', Fecha->', OLD.Fecha, ', ID_Transporte->', OLD.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `trg_venta_after_delete` AFTER DELETE ON `venta` FOR EACH ROW BEGIN
+    INSERT INTO auditoria_general (Tabla_Afectada, Accion_Realizada, Periodo_Accion, Usuario, Detalles)
+    VALUES ('venta', 'DELETE', 'AFTER', USER(), CONCAT('Registro eliminado: ID_Venta->', OLD.ID_Venta, ', ID_Articulo->', OLD.ID_Articulo, ', Cantidad->', OLD.Cantidad, ', ID_Cliente->', OLD.ID_Cliente, ', Color->', OLD.Color, ', Total->', OLD.Total, ', Fecha->', OLD.Fecha, ', ID_Transporte->', OLD.ID_Transporte));
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Temporary view structure for view `vw_articulos_vendidos_mas_quinientos`
@@ -355,6 +571,220 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `Transporte`,
  1 AS `Cantidad clientes que usan este transporte`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping events for database 'kallpa_sneakers'
+--
+
+--
+-- Dumping routines for database 'kallpa_sneakers'
+--
+/*!50003 DROP FUNCTION IF EXISTS `fn_calcular_porcentaje_provincia` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_calcular_porcentaje_provincia`(p_provincia VARCHAR(250)) RETURNS varchar(250) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+    DECLARE cantidad_total DECIMAL(10,2);
+    DECLARE cantidad_ubicacion_elegida DECIMAL(10,2);
+    DECLARE porcentaje DECIMAL(10,2);
+    DECLARE resultado VARCHAR(200);
+
+    SELECT SUM(Total) INTO cantidad_total FROM venta;
+    SELECT SUM(v.Total) INTO cantidad_ubicacion_elegida
+    FROM venta v
+    JOIN cliente c ON (v.ID_Cliente = c.ID_Cliente)
+    WHERE c.Provincia = p_provincia;
+    IF cantidad_ubicacion_elegida > 0 THEN
+        SET porcentaje = (cantidad_ubicacion_elegida * 100) / cantidad_total;
+    ELSE
+        SET porcentaje = 0;
+    END IF;
+    SET resultado = CONCAT(p_provincia, ' representa el: ', porcentaje, '%',' de ventas total');
+
+    RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `fn_mostrar_articulo_mas_vendido_de_cliente_por_año` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_mostrar_articulo_mas_vendido_de_cliente_por_año`(p_cliente VARCHAR(200), p_año INT) RETURNS varchar(100) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+    DECLARE respuesta VARCHAR(100); 
+    IF EXISTS (
+        SELECT 1
+        FROM venta v
+        JOIN cliente c ON (v.ID_Cliente = c.ID_Cliente)
+        WHERE c.cliente = p_cliente AND YEAR(Fecha) = p_año
+    ) THEN
+        SELECT tabla_cliente.articulo INTO respuesta
+        FROM (
+            SELECT a.articulo, SUM(v.Total)
+            FROM venta v
+            JOIN articulo a ON (v.ID_Articulo = a.ID_Articulo)
+            JOIN cliente c ON (v.ID_Cliente = c.ID_Cliente)
+            WHERE c.cliente = p_cliente AND YEAR(Fecha) = p_año
+            GROUP BY 1
+            ORDER BY 2 DESC
+            LIMIT 1
+        ) AS tabla_cliente;
+    ELSE
+        SET respuesta = 'No hay artículo o cliente';
+    END IF;
+
+    RETURN respuesta;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_clientes_mayores_compradores_articulos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_clientes_mayores_compradores_articulos`(
+    IN p_articulo VARCHAR(25), 
+    IN p_año INT
+)
+BEGIN		
+    SELECT c.Cliente, SUM(v.Cantidad) AS 'Cantidad de pares'
+    FROM venta v 
+    JOIN cliente c ON (c.ID_Cliente = v.ID_Cliente)
+    JOIN articulo a ON (a.ID_Articulo = v.ID_Articulo)
+    WHERE a.articulo = p_articulo AND YEAR(v.fecha) = p_año
+    GROUP BY c.Cliente
+    ORDER BY SUM(v.Cantidad) DESC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_insert_delete_venta` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_delete_venta`(
+    IN p_accion VARCHAR(10),
+    IN p_ID_Venta INT, 
+    IN p_ID_Articulo INT, 
+    IN p_Cantidad INT, 
+    IN p_ID_Cliente INT,
+    IN p_Color VARCHAR(50), 
+    IN p_Total_precio DECIMAL(10,2),
+    IN p_ID_Transporte INT
+)
+BEGIN
+    DECLARE v_mensaje VARCHAR(50);
+    IF p_accion = 'Insert' THEN
+        INSERT INTO venta(ID_Articulo, Cantidad, ID_Cliente, Color, Total, Fecha, ID_Transporte) VALUES (p_ID_Articulo, p_Cantidad, p_ID_Cliente, p_Color, p_Total_precio, current_date() ,p_ID_Transporte);
+        SET v_mensaje = 'INSERT OK.';
+    ELSEIF p_accion = 'Delete' THEN
+        DELETE FROM venta WHERE ID_Venta = p_ID_Venta;
+        SET v_mensaje = 'DELETE OK.';
+    ELSE
+        SET v_mensaje = 'No se pudo realizar la acción.';
+    END IF;
+    SELECT v_mensaje AS mensaje;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_mostrar_transporte_por_localidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_mostrar_transporte_por_localidad`(
+    IN p_localidad VARCHAR(20),
+    OUT p_tabla_transporte VARCHAR(500)
+)
+BEGIN
+    SET @consulta = CONCAT('SELECT DISTINCT t.Transporte, c.Localidad, c.Provincia
+        FROM transporte t 
+        JOIN venta v ON (t.ID_Transporte = v.ID_Transporte)
+        JOIN cliente c ON (c.ID_Cliente = v.ID_Cliente)
+        WHERE c.Localidad LIKE ''%', p_localidad, '%''');
+
+    SET p_tabla_transporte = @consulta;
+
+    PREPARE stmt FROM @consulta;    
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_ordenar_busqueda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ordenar_busqueda`(
+    IN p_columna VARCHAR(30), 
+    IN p_asc_desc VARCHAR(10)
+)
+BEGIN
+    SET @sql = CONCAT(
+        'SELECT * 
+        FROM venta
+        ORDER BY ', p_columna, ' ', p_asc_desc
+    );
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `vw_articulos_vendidos_mas_quinientos`
@@ -491,4 +921,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-23 18:50:09
+-- Dump completed on 2024-05-07 20:28:49
